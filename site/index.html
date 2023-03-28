@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Педогогическая нагрузка</title>
+    <link rel="stylesheet" href="../styles/main.css" type="text/css">
+    <script src="../scripts/main.js"></script>
+</head>
+<body>
+    <table id="mainTable" border="5" cellpadding="4" cellspacing="0">
+        <thead>
+            <strong>Педогогическая нагрузка </strong>
+            <select name="" id="teacher">
+                <option value="Авдеева Е. А.">Авдеева Е. А.</option>
+            </select>
+            <b> </b>
+            <input class="year" type="text">
+            <strong>/</strong>
+            <input class="year" type="text">
+            гг.
+        </thead>
+        <tr>
+            <td rowspan="2">
+                <strong>№</strong>
+            </td>
+            <td rowspan="2">
+                <strong>Дисциплина</strong>
+            </td>
+            <td rowspan="2">
+                <strong>Группа</strong>
+            </td>
+            <td colspan="2">
+                <strong>Лекции</strong>
+            </td>
+            <td colspan="2">
+                <strong>Лабораторные работы</strong>
+            </td>
+            <td colspan="2">
+                <strong>Практичесие работы</strong>
+            </td>
+            <td colspan="2">
+                <strong>Курсовые проекты</strong>
+            </td>
+            <td colspan="2">
+                <strong>Консультации</strong>
+            </td>
+            <td colspan="2">
+                <strong>Формы контроля</strong>
+            </td>
+            <td rowspan="2">
+                <strong>Б</strong>
+            </td>
+            <td rowspan="2">
+                <strong>В/Б</strong>
+            </td>
+            <td rowspan="2">
+                <strong>Всего</strong>
+            </td>
+        </tr>
+        <tr>
+            <td>1 семестр</td>
+            <td>2 семетр</td>
+            <td>1 семестр</td>
+            <td>2 семетр</td>
+            <td>1 семестр</td>
+            <td>2 семетр</td>
+            <td>1 семестр</td>
+            <td>2 семетр</td>
+            <td>1 семестр</td>
+            <td>2 семетр</td>
+            <td>1 семестр</td>
+            <td>2 семетр</td>
+        </tr>
+        <div>
+            <tr>
+                <td>1</td>
+                <td>
+                    <input type="text" class="discipline">
+                </td>
+                <td>
+                    <select name="group" class="group">
+
+                    </select>
+                </td>
+                <td>
+                    <input type="text">
+                </td>
+                <td>
+                    <input type="text">
+                </td>
+                <td>
+                    <input type="text">
+                </td>
+                <td>
+                    <input type="text">
+                </td>
+                <td>
+                    <input type="text">
+                </td>
+                <td>
+                    <input type="text">
+                </td>
+                <td>
+                    <input type="text">
+                </td>
+                <td>
+                    <input type="text">
+                </td>
+                <td>
+                    <input type="text">
+                </td>
+                <td>
+                    <input type="text">
+                </td>
+                <td>
+                    <input type="text">
+                </td>
+                <td>
+                    <input type="text">
+                </td>
+                <td>
+                    <input type="text">
+                </td>
+                <td>
+                    <input type="text">
+                </td>
+                <td>
+                    
+                </td>
+            </tr>
+        </div>
+        <tr>
+            <td colspan="2">
+                <strong>Всего</strong>
+            </td>
+            <td colspan="13"></td>
+            <td>
+                <input type="text">
+            </td>
+            <td>
+                <input type="text">
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <strong>Праздничные дни</strong>
+            </td>
+            <td colspan="13"></td>
+            <td>
+                <input type="text">
+            </td>
+            <td>
+                <input type="text">
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <strong>Итого</strong>
+            </td>
+            <td colspan="13"></td>
+            <td>
+                <input type="text">
+            </td>
+            <td>
+                <input type="text">
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+    </table>
+    <section>
+        <p>
+            С нагрузкой ознакомлен, не возражаю ____________________________
+        </p>
+    </section>
+    <div class="d-print-none">
+        <table border="5" cellpadding="4" cellspacing="0">
+            <tr>
+                <td>
+                    <strong>Работа с таблицей</strong>
+                </td>
+                <td>
+                    <strong>Работа с педагогами</strong>
+                </td>
+                <td>
+                    <strong>Работа с группами</strong>
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <section>
+                            
+                        <button onclick="addNewString()">Добавить строку</button>
+                        <button>Удалить строку</button>
+                        <select name="" id="string_number_del">
+                            <option value="1">100</option>
+                            <option value="2">2</option>
+                        </select>
+                    </section>
+                </td>
+                <td align="left">
+                    <p>
+                        <button>Добавить педагога</button>
+                        <input id="inputTeacherGroup" type="text">
+                    </p>
+                    <p>
+                        <button>Удалить педагога</button>
+                        <select class="chooseItem" name="" id=""></select>
+                    </p>
+                </td>
+                <td align="left">
+                    <p>
+                        <button>Добавить группу</button>
+                        <input id="inputTeacherGroup" type="text">
+                    </p>
+                    <p>
+                        <button>Удалить группу</button>
+                        <select class="chooseItem" name="" id=""></select>
+                    </p>
+                </td>
+            </tr>
+        </table>
+        <p>
+            <button onclick="window.print()">Печать</button>
+        </p>
+    </div>
+</body>
+</html>

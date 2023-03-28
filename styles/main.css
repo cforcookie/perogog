@@ -1,0 +1,88 @@
+@media print {
+    .d-print-none {
+      display: none !important;
+    }
+}
+
+.inputText {
+    text-align: left;
+    width: 100px;
+}
+
+input {
+    border-width: 0px;
+}
+
+#inputTeacherGroup {
+    width: 95px;
+    border-width: 1px;
+}
+
+#teacher {
+    border-width: 0px;
+    appearance: none;
+}
+
+.year {
+    width: 40px;
+}
+
+.chooseItem {
+    width: 100px;
+}
+
+.group {
+    border-width: 0px;
+    appearance: none;
+    width: 100px;
+}
+
+.discipline {
+    width: 150px;
+}
+
+table {
+    table-layout: fixed;
+    width: auto;
+    text-align: center;
+    border: 3px solid balck;
+    border-spacing: 1px;
+    border-collapse: collapse;
+}
+
+input {
+    width: 50px;
+    text-align: center;
+}
+
+thead th:nth-child(1) {
+    width: 20%;
+  }
+
+thead th:nth-child(2) {
+    width: 10%;
+  }
+  
+thead th:nth-child(3) {
+    width: 5%;
+  }
+  
+thead th:nth-child(4) {
+    width: 25%;
+  }
+  
+th, td {
+    padding: 5px;
+  }
+
+button {
+    width: 100px;
+    height: 35px;
+}
+
+#string_number_del {
+    width: 50px;
+    height: 20px;
+}
+
+
