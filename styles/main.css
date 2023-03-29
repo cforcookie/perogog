@@ -4,41 +4,12 @@
     }
 }
 
-.inputText {
-    text-align: left;
-    width: 100px;
+body {
+    font-family: 'Roboto', sans-serif;
 }
 
 input {
     border-width: 0px;
-}
-
-#inputTeacherGroup {
-    width: 95px;
-    border-width: 1px;
-}
-
-#teacher {
-    border-width: 0px;
-    appearance: none;
-}
-
-.year {
-    width: 40px;
-}
-
-.chooseItem {
-    width: 100px;
-}
-
-.group {
-    border-width: 0px;
-    appearance: none;
-    width: 100px;
-}
-
-.discipline {
-    width: 150px;
 }
 
 table {
@@ -80,9 +51,50 @@ button {
     height: 35px;
 }
 
+.inputText {
+    text-align: left;
+    width: 100px;
+}
+
+
+.year {
+    width: 40px;
+}
+
+.chooseItem {
+    width: 100px;
+}
+
+.chooseTeacher {
+    width: 50px;
+    height: 20px;
+}
+
+.group {
+    border-width: 0px;
+    appearance: none;
+    width: 100px;
+}
+
+.discipline {
+    width: 150px;
+}
+
 #string_number_del {
     width: 50px;
     height: 20px;
 }
 
+#inputTeacher{
+    width: 95px;
+    border-width: 1px;
+}
+#inputGroup{
+    width: 95px;
+    border-width: 1px;
+}
 
+#teacher {
+    border-width: 0px;
+    appearance: none;
+}

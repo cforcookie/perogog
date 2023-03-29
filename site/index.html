@@ -5,15 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Педогогическая нагрузка</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/main.css" type="text/css">
     <script src="../scripts/main.js"></script>
 </head>
 <body>
     <table id="mainTable" border="5" cellpadding="4" cellspacing="0">
         <thead>
-            <strong>Педогогическая нагрузка </strong>
-            <select name="" id="teacher">
-                <option value="Авдеева Е. А.">Авдеева Е. А.</option>
+            <strong>Педагогическая нагрузка </strong>
+            <select name="" id="chooseTeacher" style="border-width: 0px; appearance: none;width: auto;">
             </select>
             <b> </b>
             <input class="year" type="text">
@@ -73,53 +75,12 @@
             <td>1 семестр</td>
             <td>2 семетр</td>
         </tr>
-        <div>
+        <tfooter>
             <tr>
-                <td>1</td>
-                <td>
-                    <input type="text" class="discipline">
+                <td colspan="2">
+                    <strong>Всего</strong>
                 </td>
-                <td>
-                    <select name="group" class="group">
-
-                    </select>
-                </td>
-                <td>
-                    <input type="text">
-                </td>
-                <td>
-                    <input type="text">
-                </td>
-                <td>
-                    <input type="text">
-                </td>
-                <td>
-                    <input type="text">
-                </td>
-                <td>
-                    <input type="text">
-                </td>
-                <td>
-                    <input type="text">
-                </td>
-                <td>
-                    <input type="text">
-                </td>
-                <td>
-                    <input type="text">
-                </td>
-                <td>
-                    <input type="text">
-                </td>
-                <td>
-                    <input type="text">
-                </td>
-                <td>
-                    <input type="text">
-                </td>
-                <td>
-                    <input type="text">
-                </td>
+                <td colspan="13"></td>
                 <td>
                     <input type="text">
                 </td>
@@ -130,52 +91,37 @@
                     
                 </td>
             </tr>
-        </div>
-        <tr>
-            <td colspan="2">
-                <strong>Всего</strong>
-            </td>
-            <td colspan="13"></td>
-            <td>
-                <input type="text">
-            </td>
-            <td>
-                <input type="text">
-            </td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <strong>Праздничные дни</strong>
-            </td>
-            <td colspan="13"></td>
-            <td>
-                <input type="text">
-            </td>
-            <td>
-                <input type="text">
-            </td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <strong>Итого</strong>
-            </td>
-            <td colspan="13"></td>
-            <td>
-                <input type="text">
-            </td>
-            <td>
-                <input type="text">
-            </td>
-            <td>
-                
-            </td>
-        </tr>
+            <tr>
+                <td colspan="2">
+                    <strong>Праздничные дни</strong>
+                </td>
+                <td colspan="13"></td>
+                <td>
+                    <input type="text">
+                </td>
+                <td>
+                    <input type="text">
+                </td>
+                <td>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <strong>Итого</strong>
+                </td>
+                <td colspan="13"></td>
+                <td>
+                    <input type="text">
+                </td>
+                <td>
+                    <input type="text">
+                </td>
+                <td>
+                    
+                </td>
+            </tr>
+        </tfooter>
     </table>
     <section>
         <p>
@@ -196,35 +142,36 @@
                 </td>
             </tr>
             <tr>
-                <td align="left">
+                <td align="center">
                     <section>
                             
                         <button onclick="addNewString()">Добавить строку</button>
-                        <button>Удалить строку</button>
-                        <select name="" id="string_number_del">
-                            <option value="1">100</option>
-                            <option value="2">2</option>
+                        <button onclick="delString()">Удалить строку</button>
+                        <select name="stringToDel" id="string_number_del">
+                            
                         </select>
                     </section>
                 </td>
                 <td align="left">
                     <p>
-                        <button>Добавить педагога</button>
-                        <input id="inputTeacherGroup" type="text">
+                        <button onclick="addTeacher()">Добавить педагога</button>
+                        <input id="inputTeacher" type="text">
                     </p>
                     <p>
-                        <button>Удалить педагога</button>
-                        <select class="chooseItem" name="" id=""></select>
+                        <button onclick="revomeTeacher()">Удалить педагога</button>
+                        <select id="chooseItem" name="" ></select>
                     </p>
                 </td>
                 <td align="left">
                     <p>
-                        <button>Добавить группу</button>
-                        <input id="inputTeacherGroup" type="text">
+                        <button onclick="addGroup()">Добавить группу</button>
+                        <input id="inputGroup" type="text">
                     </p>
                     <p>
-                        <button>Удалить группу</button>
-                        <select class="chooseItem" name="" id=""></select>
+                        <button onclick="removeGroup()">Удалить группу</button>
+                        <select id="chooseGroup" name="">
+
+                        </select>
                     </p>
                 </td>
             </tr>
