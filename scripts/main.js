@@ -2,6 +2,7 @@
 
 let counter = 2;
 let idCounter = 0;
+let stringCounter = 0;
 let teacherIdCounter;
 
 function addNewString() {
@@ -29,6 +30,7 @@ function addNewString() {
     let newCell2 = row.insertCell(2);
     newCell2.id = `${idCounter}${2}`;
     newCell2.innerHTML = `<select name="group" class="group"></select>`;
+    
 
     for(let i = 3; i < 17; i++) {
         const newCell = row.insertCell(i) 
@@ -44,27 +46,58 @@ function addNewString() {
 
     counter++;
     idCounter++;
+    stringCounter++;
 }
 
 function delString() {
     let table = document.getElementById("mainTable");
     let getIndexRow = document.getElementById("string_number_del");
     let optionValue = getIndexRow.options[getIndexRow.selectedIndex].value;
-    console.log(optionValue);
-    let row = document.getElementById(`insertRow${optionValue-1}`);
+    let row = document.getElementById(`insertRow${optionValue - 1}`);
     table.deleteRow(row.rowIndex);
+    getIndexRow.remove(getIndexRow.selectedIndex);
+
+    for(let i = 0; i < getIndexRow.options.length; i++) {
+        getIndexRow.options[i].value = i + 1;
+        getIndexRow.options[i].textContent = i + 1;
+    }
+
+    let copyIdCounter = idCounter - 1;
+    for(let i = 0; i < copyIdCounter; i++) {
+        let row = document.getElementById(`insertRow${i}`);
+        if(row == null) {
+            for(let j = i; j < copyIdCounter; j++) {
+                let newId = j + 1;
+                const rowNext = document.getElementById(`insertRow${newId}`);
+                rowNext.id = `insertRow${j}`;
+            }
+        }
+    }
+
+    for(let i = 0; i < copyIdCounter; i++) {
+        for(let j = 0; j < 18; j++) {
+            let cellToChangeId = document.getElementById(`${i}${j}`);
+            if( cellToChangeId == null) {
+                let nextId = i + 1;
+                const cellNext = document.getElementById(`${nextId}${j}`);
+                cellNext.id = `${i}${j}`;
+            }
+        }
+    }
+
+    for(let i = 0; i < copyIdCounter; i++) {
+        let cell = document.getElementById(`${i}0`)
+        cell.textContent = i+1;
+    }
+    idCounter--
     counter--;
-    idCounter--;
 }
 
 function addTeacher() {
     const inputTeacher = document.getElementById("inputTeacher");
     if (inputTeacher.value !== "") {
-        console.log(inputTeacher.value);
-
         addOptionTeacher("chooseItem", inputTeacher);
         addOptionTeacher("chooseTeacher", inputTeacher);
-
         teacherIdCounter++;
 
     }
@@ -82,12 +115,8 @@ function addOptionTeacher(idSelect, inputTeacher) {
 function addGroup() {
     const inputGroup = document.getElementById("inputGroup");
     if (inputGroup.value !== "") {
-        console.log(inputGroup.value);
-
         addOptionGroup("chooseGroup", inputGroup);
-
         teacherIdCounter++;
-
     }
 }
 
@@ -98,6 +127,7 @@ function addOptionGroup(idSelect, inputGroup) {
     option.text = inputGroup.value;
     option.id = `teacherId${teacherIdCounter}`;
     selectSpace.add(option);
+
 }
 
 function revomeTeacher() {
@@ -110,5 +140,7 @@ function revomeTeacher() {
 }
 
 function removeGroup() {
-    
+    const selectGroup = document.getElementById("chooseGroup");
+    const toDel = selectGroup.selectedIndex
+    selectGroup.remove(toDel);
 }

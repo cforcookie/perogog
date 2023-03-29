@@ -12,6 +12,58 @@
     <script src="../scripts/main.js"></script>
 </head>
 <body>
+    <div class="d-print-none">
+        <table border="5" cellpadding="4" cellspacing="0">
+            <tr>
+                <td>
+                    <strong>Работа с таблицей</strong>
+                </td>
+                <td>
+                    <strong>Работа с педагогами</strong>
+                </td>
+                <td>
+                    <strong>Работа с группами</strong>
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <section>
+                            
+                        <button onclick="addNewString()">Добавить строку</button>
+                        <button onclick="delString()">Удалить строку</button>
+                        <select name="stringToDel" id="string_number_del">
+                            
+                        </select>
+                    </section>
+                </td>
+                <td align="left">
+                    <p>
+                        <button onclick="addTeacher()">Добавить педагога</button>
+                        <input id="inputTeacher" type="text">
+                    </p>
+                    <p>
+                        <button onclick="revomeTeacher()">Удалить педагога</button>
+                        <select id="chooseItem" name="" ></select>
+                    </p>
+                </td>
+                <td align="left">
+                    <p>
+                        <button onclick="addGroup()">Добавить группу</button>
+                        <input id="inputGroup" type="text">
+                    </p>
+                    <p>
+                        <button onclick="removeGroup()">Удалить группу</button>
+                        <select id="chooseGroup" name="">
+
+                        </select>
+                    </p>
+                </td>
+            </tr>
+        </table>
+        <p>
+            <button onclick="window.print()">Печать</button>
+        </p>
+    </div>
     <table id="mainTable" border="5" cellpadding="4" cellspacing="0">
         <thead>
             <strong>Педагогическая нагрузка </strong>
@@ -128,57 +180,5 @@
             С нагрузкой ознакомлен, не возражаю ____________________________
         </p>
     </section>
-    <div class="d-print-none">
-        <table border="5" cellpadding="4" cellspacing="0">
-            <tr>
-                <td>
-                    <strong>Работа с таблицей</strong>
-                </td>
-                <td>
-                    <strong>Работа с педагогами</strong>
-                </td>
-                <td>
-                    <strong>Работа с группами</strong>
-                </td>
-            </tr>
-            <tr>
-                <td align="center">
-                    <section>
-                            
-                        <button onclick="addNewString()">Добавить строку</button>
-                        <button onclick="delString()">Удалить строку</button>
-                        <select name="stringToDel" id="string_number_del">
-                            
-                        </select>
-                    </section>
-                </td>
-                <td align="left">
-                    <p>
-                        <button onclick="addTeacher()">Добавить педагога</button>
-                        <input id="inputTeacher" type="text">
-                    </p>
-                    <p>
-                        <button onclick="revomeTeacher()">Удалить педагога</button>
-                        <select id="chooseItem" name="" ></select>
-                    </p>
-                </td>
-                <td align="left">
-                    <p>
-                        <button onclick="addGroup()">Добавить группу</button>
-                        <input id="inputGroup" type="text">
-                    </p>
-                    <p>
-                        <button onclick="removeGroup()">Удалить группу</button>
-                        <select id="chooseGroup" name="">
-
-                        </select>
-                    </p>
-                </td>
-            </tr>
-        </table>
-        <p>
-            <button onclick="window.print()">Печать</button>
-        </p>
-    </div>
 </body>
 </html>
