@@ -13,6 +13,10 @@
 </head>
 <body>
     <div class="d-print-none">
+        <!-- <p>
+            <button>Загрузить форму</button>
+            <select name="" id="jsonSource"></select>
+        </p> -->
         <table border="5" cellpadding="4" cellspacing="0">
             <tr>
                 <td>
@@ -27,14 +31,12 @@
             </tr>
             <tr>
                 <td align="center">
-                    <section>
-                            
+                    <div>
                         <button onclick="addNewString()">Добавить строку</button>
                         <button onclick="delString()">Удалить строку</button>
                         <select name="stringToDel" id="string_number_del">
-                            
                         </select>
-                    </section>
+                    </div>
                 </td>
                 <td align="left">
                     <p>
@@ -60,10 +62,17 @@
                 </td>
             </tr>
         </table>
-        <p>
-            <button onclick="window.print()">Печать</button>
-        </p>
+        
     </div>
+    <table>
+        <tr>
+            <td>
+                <button onclick="window.print()">Печать таблицы</button>
+                <button onclick="calculateTable()">Расчитать таблицу</button>
+            </td>
+        </tr>
+    </table>
+    <p></p>
     <table id="mainTable" border="5" cellpadding="4" cellspacing="0">
         <thead>
             <strong>Педагогическая нагрузка </strong>
@@ -133,15 +142,10 @@
                     <strong>Всего</strong>
                 </td>
                 <td colspan="13"></td>
-                <td>
-                    <input type="text">
+                <td id="altogetherB"></td>
                 </td>
-                <td>
-                    <input type="text">
-                </td>
-                <td>
-                    
-                </td>
+                <td id="altogetherVB"></td>
+                <td id="altogetherAll"></td>
             </tr>
             <tr>
                 <td colspan="2">
@@ -149,29 +153,21 @@
                 </td>
                 <td colspan="13"></td>
                 <td>
-                    <input type="text">
+                    <input id="celebrateB" type="text">
                 </td>
                 <td>
-                    <input type="text">
+                    <input id="celebrateVB" type="text">
                 </td>
-                <td>
-                    
-                </td>
+                <td id="celebrateAll" style="width: 50px"></td>
             </tr>
             <tr>
                 <td colspan="2">
                     <strong>Итого</strong>
                 </td>
                 <td colspan="13"></td>
-                <td>
-                    <input type="text">
-                </td>
-                <td>
-                    <input type="text">
-                </td>
-                <td>
-                    
-                </td>
+                <td id="resultB" style="width: 50px;"></td>
+                <td id="resultVB" style="width: 50px;"></td>
+                <td id="resultAll" style="width: 50px"></td>
             </tr>
         </tfooter>
     </table>

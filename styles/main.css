@@ -10,6 +10,8 @@ body {
 
 input {
     border-width: 0px;
+    width: 50px;
+    text-align: center;
 }
 
 table {
@@ -21,10 +23,6 @@ table {
     border-collapse: collapse;
 }
 
-input {
-    width: 50px;
-    text-align: center;
-}
 
 thead th:nth-child(1) {
     width: 20%;
@@ -70,11 +68,6 @@ button {
     height: 20px;
 }
 
-.group {
-    border-width: 0px;
-    appearance: none;
-    width: 100px;
-}
 
 .discipline {
     width: 150px;

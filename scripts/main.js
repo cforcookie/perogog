@@ -3,7 +3,9 @@
 let counter = 2;
 let idCounter = 0;
 let stringCounter = 0;
-let teacherIdCounter;
+let teacherIdCounter = 0;
+let groupIdCounter = 0;
+let resultForAll = 0;
 
 function addNewString() {
     let table = document.getElementById("mainTable");
@@ -17,11 +19,11 @@ function addNewString() {
     newCell.innerHTML = counter-1;
 
     let selectSpace = document.getElementById("string_number_del");
-    let option = document.createElement("option");
-    option.value = counter-1;
-    option.text = counter-1;
-    option.id = `delOptionId${counter-1}`;
-    selectSpace.add(option);
+    let optionNum = document.createElement("option");
+    optionNum.value = counter-1;
+    optionNum.text = counter-1;
+    optionNum.id = `delOptionId${counter-1}`;
+    selectSpace.add(optionNum);
 
     let newCell1 = row.insertCell(1) 
     newCell1.id = `${idCounter}${1}`
@@ -29,11 +31,11 @@ function addNewString() {
 
     let newCell2 = row.insertCell(2);
     newCell2.id = `${idCounter}${2}`;
-    newCell2.innerHTML = `<select name="group" class="group"></select>`;
-    
+    newCell2.innerHTML = `<select name="group" id="group${idCounter}" style="border-width: 0px;appearance: none;width: 100px;"></select>`;
+    updateGroupAddToNewString(idCounter);
 
     for(let i = 3; i < 17; i++) {
-        const newCell = row.insertCell(i) 
+        const newCell = row.insertCell(i)
         newCell.id = `${idCounter}${i}`
         newCell.innerHTML =`<input id="input${idCounter}${i}" type="text">`;
     }
@@ -89,6 +91,7 @@ function delString() {
         let cell = document.getElementById(`${i}0`)
         cell.textContent = i+1;
     }
+
     idCounter--
     counter--;
 }
@@ -99,7 +102,7 @@ function addTeacher() {
         addOptionTeacher("chooseItem", inputTeacher);
         addOptionTeacher("chooseTeacher", inputTeacher);
         teacherIdCounter++;
-
+        inputTeacher.value = "";
     }
 }
 
@@ -116,8 +119,12 @@ function addGroup() {
     const inputGroup = document.getElementById("inputGroup");
     if (inputGroup.value !== "") {
         addOptionGroup("chooseGroup", inputGroup);
-        teacherIdCounter++;
+        groupIdCounter++;
+        inputGroup.value = "";
+        updateGroupRemove();
+        updateGroupAdd();
     }
+    
 }
 
 function addOptionGroup(idSelect, inputGroup) {
@@ -125,7 +132,7 @@ function addOptionGroup(idSelect, inputGroup) {
     let option = document.createElement("option");
     option.value = inputGroup.value;
     option.text = inputGroup.value;
-    option.id = `teacherId${teacherIdCounter}`;
+    option.id = `groupId${groupIdCounter}`;
     selectSpace.add(option);
 
 }
@@ -143,4 +150,142 @@ function removeGroup() {
     const selectGroup = document.getElementById("chooseGroup");
     const toDel = selectGroup.selectedIndex
     selectGroup.remove(toDel);
+    groupIdCounter--;
+    updateGroupRemove();
+    updateGroupAdd();
+}
+
+function updateGroupRemove() {
+    for(let i = 0; i < idCounter; i++) {
+        let localOptionCounter = document.getElementById(`group${i}`);
+        let length = localOptionCounter.options.length;
+        for (let j = length-1; j >= 0; j--) {
+            localOptionCounter.options[j] = null;
+        }
+    }
+}
+
+function updateGroupAdd () {
+    for(let i = 0; i < idCounter; i++) {
+        let localOptionCounter = document.getElementById(`group${i}`);
+        for(let j = 0; j < groupIdCounter; j++) {
+            let groupCell = document.getElementById(`groupId${j}`);
+            let option = document.createElement("option");
+            option.value = groupCell.value;
+            option.textContent = groupCell.textContent;
+            option.id = `rowGroupId${j}`;
+            option.style = "text-align: center;"
+            localOptionCounter.append(option);
+        }
+    }
+}
+
+function updateGroupAddToNewString (idCounter) {
+    let localOptionCounter = document.getElementById(`group${idCounter}`);
+    for(let j = 0; j < groupIdCounter; j++) {
+        let groupCell = document.getElementById(`groupId${j}`);
+        let option = document.createElement("option");
+        option.value = groupCell.value;
+        option.textContent = groupCell.textContent;
+        option.id = `rowGroupId${j}`;
+        option.style = "text-align: center;"
+        localOptionCounter.append(option);
+    }
+}
+
+function calculateTable() {
+    culculateMain();
+    culculateB();
+    culculateVB();
+    culculateAll();
+    culculateCelebrateAll();
+    culculateResultAll();
+}
+
+function culculateMain() {
+    for(let i = 0; i < idCounter; i++) {
+        let result = 0;
+        for(let j = 3; j < 17; j++) {
+            let cellValue = parseInt(document.getElementById(`input${i}${j}`).value);
+            if(!isNaN(cellValue)) {
+                result+=cellValue;
+            }
+        }
+        let cellForResult = document.getElementById(`${i}17`);
+        resultForAll+=result;
+        cellForResult.innerText = result;
+    }
+}
+
+function culculateB() {
+    for(let i = 0; i < idCounter; i++) {
+        let result = 0;
+        let cellValue = parseInt(document.getElementById(`input${i}15`).value);
+        if(!isNaN(cellValue)) {
+            result+=cellValue;
+        }
+        let cellForResult = document.getElementById(`altogetherB`);
+        cellForResult.innerText = result;
+    }
+}
+
+function culculateVB() {
+    for(let i = 0; i < idCounter; i++) {
+        let result = 0;
+        let cellValue = parseInt(document.getElementById(`input${i}16`).value);
+        if(!isNaN(cellValue)) {
+            result+=cellValue;
+        }
+        let cellForResult = document.getElementById(`altogetherVB`);
+        cellForResult.innerText = result;
+    }
+}
+
+function culculateAll() {
+    let result = 0;
+    let cellValueB = parseInt(document.getElementById(`altogetherB`).textContent);
+    let cellValueVB = parseInt(document.getElementById(`altogetherVB`).textContent);
+    if(!isNaN(cellValueB)) {
+        result+=cellValueB;
+    }
+    if(!isNaN(cellValueVB)) {
+        result+=cellValueVB;
+    }
+    let cellForResult = document.getElementById(`altogetherAll`);
+    cellForResult.innerText = result;
+}
+
+function culculateCelebrateAll() {
+    let result = 0;
+    let cellValueB = parseInt(document.getElementById(`celebrateB`).value);
+    let cellValueVB = parseInt(document.getElementById(`celebrateVB`).value);
+    if(!isNaN(cellValueB)) {
+        result+=cellValueB;
+    }
+    if(!isNaN(cellValueVB)) {
+        result+=cellValueVB;
+    }
+    let cellForResult = document.getElementById(`celebrateAll`);
+    cellForResult.innerText = result;
+}
+
+function culculateResultAll() {
+    let altogetherB = parseInt(document.getElementById("altogetherB").textContent);
+    let altogetherVB = parseInt(document.getElementById("altogetherVB").textContent);
+    let altogetherAll = parseInt(document.getElementById("altogetherAll").textContent);
+    let celebrateB = parseInt(document.getElementById("celebrateB").value);
+    let celebrateVB = parseInt(document.getElementById("celebrateVB").value);
+    let celebrateAll = parseInt(document.getElementById("celebrateAll").textContent); 
+    let resultB = document.getElementById("resultB");
+    let resultVB = document.getElementById("resultVB");
+    let resultAll = document.getElementById("resultAll");
+    let numberResultB = 0;
+    let numberResultVB = 0;
+    let numberResultAll = 0;
+    numberResultB = altogetherB - celebrateB;
+    resultB.innerText = numberResultB;
+    numberResultVB = altogetherVB - celebrateVB;
+    resultVB.innerText = numberResultVB;
+    numberResultAll = resultForAll - celebrateAll;
+    resultAll.innerText = numberResultAll;
 }
